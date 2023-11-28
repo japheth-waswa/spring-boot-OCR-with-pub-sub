@@ -3,6 +3,7 @@ package dev.japhethwaswa.ocrservice.api.controller;
 import com.google.gson.Gson;
 import dev.japhethwaswa.ocrservice.api.model.OCRSTATUS;
 import dev.japhethwaswa.ocrservice.api.model.Ocr;
+import dev.japhethwaswa.ocrservice.ocr.TesseractOcr;
 import dev.japhethwaswa.ocrservice.redis.publisher.OcrSuccessPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,8 @@ public class Web {
 
     @GetMapping("/")
     public String root(){
+
+        String txt  = new TesseractOcr().extractTextFromImage("./kenya.png");
         return "Hello World";
     }
 

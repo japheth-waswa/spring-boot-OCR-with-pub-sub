@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+
+  spring_demo_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: japhethwaswa/ocrservice:1
+    expose:
+      - 1558
+    ports:
+      - 1658:1558
+    volumes:
+      - ./.env.dev:/.env
+      - ./kenya.png:/kenya.png
+      - ./tessdata:/tessdata
+    restart: always

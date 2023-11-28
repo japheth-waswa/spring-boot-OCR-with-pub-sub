@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>dev.japhethwaswa</groupId>
 	<artifactId>ocrservice</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>ocrservice</name>
 	<description>Perform OCR on documents &amp; images</description>
 	<properties>
@@ -50,6 +50,11 @@
 			<version>2.10.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>net.sourceforge.tess4j</groupId>
+			<artifactId>tess4j</artifactId>
+			<version>5.8.0</version>
+		</dependency>
 
 	</dependencies>
 
