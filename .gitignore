@@ -37,3 +37,4 @@ build/
 .env.dev
 .env.prod
 *.log
+assets/

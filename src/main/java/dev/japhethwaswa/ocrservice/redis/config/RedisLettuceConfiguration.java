@@ -26,7 +26,7 @@ public class RedisLettuceConfiguration {
     }
 
     @Bean
-    RedisTemplate<String, Object> redisTemplate() {
+     RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(lettuceConnectionFactory());
         redisTemplate.setValueSerializer(new GenericToStringSerializer<Object>(Object.class));
@@ -38,7 +38,7 @@ public class RedisLettuceConfiguration {
     RedisMessageListenerContainer container() {
         final RedisMessageListenerContainer redisMessageListenerContainer = new RedisMessageListenerContainer();
         redisMessageListenerContainer.setConnectionFactory(lettuceConnectionFactory());
-        redisMessageListenerContainer.addMessageListener(new MessageListenerAdapter(new OcrProcessorSubscriber()), new ChannelTopic("OCR-TOPIC"));
+        redisMessageListenerContainer.addMessageListener(new MessageListenerAdapter(new OcrProcessorSubscriber(redisTemplate())), new ChannelTopic("OCR-PROCESSOR"));
         return redisMessageListenerContainer;
     }
     //end listeners
@@ -46,8 +46,8 @@ public class RedisLettuceConfiguration {
 
     //start publisher
     @Bean
-    ChannelTopic topic() {
-        return new ChannelTopic("OCR-TOPIC");
+      ChannelTopic topic() {
+        return new ChannelTopic("OCR-PROCESSOR");
     }
 
     @Bean

@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OcrService {
 
 	public static Dotenv dotenv;
+
 	public static void main(String[] args) {
 		dotenv = Dotenv.configure().load();
 		SpringApplication.run(OcrService.class, args);

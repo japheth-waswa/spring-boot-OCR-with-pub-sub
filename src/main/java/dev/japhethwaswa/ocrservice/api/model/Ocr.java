@@ -1,4 +1,6 @@
 package dev.japhethwaswa.ocrservice.api.model;
 
-public record Ocr(String fileId, OCRSTATUS ocrStatus) {
+import java.util.Map;
+
+public record Ocr(String fileId, String fileName, Map<Integer,String>data, OCRSTATUS ocrStatus) {
 }
